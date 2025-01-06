@@ -6,3 +6,4 @@ scikit-learn
 selenium
 newspaper3k
 spacy
+googletrans==4.0.0-rc1
