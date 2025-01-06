@@ -2,3 +2,7 @@ streamlit
 beautifulsoup4
 requests
 transformers
+scikit-learn
+selenium
+newspaper3k
+spacy
