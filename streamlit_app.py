@@ -41,7 +41,7 @@ def fetch_local_news(keyword):
 
 # NewsAPI를 통한 해외 뉴스 크롤링 함수 (해외)
 def fetch_international_news(keywords):
-    api_key = 'YOUR_NEWSAPI_KEY'  # 발급받은 NewsAPI 키를 여기에 입력하세요.
+    api_key = 'e19c176dce9e444b8d78ca264f87468d'  # 발급받은 NewsAPI 키를 여기에 입력하세요.
     # 키워드를 영어로 변환
     translator = Translator()
     translated_keyword = translator.translate(keywords, src='ko', dest='en').text
@@ -89,14 +89,15 @@ with st.expander("금주의 ESG 트렌드 요약"):
 with st.expander("국내외 주요 뉴스"):
     # 키워드 선택 (체크박스를 가로로 배치)
     st.write("주요 키워드를 선택하세요 (중복 선택 가능):")
-    keywords = ["환경", "사회", "거버넌스", "기술", "경제", "정치", "글로벌 트렌드", "ESG"]
+    keywords = ["ESG", "환경경영", "사회적가치", "거버넌스", "SK"]
 
     # 가로로 배치할 열 개수 설정
     cols = st.columns(4)  # 4개의 열을 생성 (필요에 따라 조정 가능)
 
     selected_keywords = []
     for i, keyword in enumerate(keywords):
-        if cols[i % 4].checkbox(keyword):  # 각 열에 체크박스를 배치
+        # 각 체크박스에 고유한 key 값을 부여하여 중복 오류 방지
+        if cols[i % 4].checkbox(keyword, key=f"checkbox_{i}"):  # 각 열에 체크박스를 배치
             selected_keywords.append(keyword)
 
     # 국내, 해외 뉴스를 가로로 배치
